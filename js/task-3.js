@@ -18,8 +18,10 @@ class Stcorage {
     this.items.push(item);
   }
   removeItem(item) {
-    const position = this.items.indexOf(item);
-    this.items.splice(position, 1);
+    if (this.items.includes(item) === true) {
+      const position = this.items.indexOf(item);
+      this.items.splice(position, 1);
+    }
   }
 }
 
@@ -37,4 +39,7 @@ storage.addItem('Дроїд');
 console.table(storage.items); // [ "Нанітоіди", "Пролонгер", "Залізні жупи", "Антигравітатор", "Дроїд" ]
 
 storage.removeItem('Пролонгер');
+console.table(storage.items); // [ "Нанітоіди", "Залізні жупи", "Антигравітатор", "Дроїд" ]
+
+storage.removeItem('jdvns');
 console.table(storage.items); // [ "Нанітоіди", "Залізні жупи", "Антигравітатор", "Дроїд" ]
